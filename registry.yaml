@@ -1,49 +1,160 @@
 # Enterprise Skills Registry
 #
-# This file serves as the discovery index for portable, reusable procedures
-# designed to work across repositories and future AI runners.
-#
-# Structure:
-#   - Each skill has a unique identifier
-#   - skills/<skill-id>/SKILL.md contains the executable procedure
-#   - references/ and scripts/ are optional supporting materials
-#
-# Progressive loading: Read ONLY this file first.
-# Open individual SKILL.md files only when explicitly invoked or triggered.
+# Discovery index for portable, reusable enterprise skills.
+# Progressive loading rule:
+#   1) Read this file only.
+#   2) Open skills/<skill-name>/SKILL.md only when invoked.
+#   3) Do not scan entire registry.
 
 version: "1.0"
 
 skills:
-  # Placeholder structure for enterprise skills
-  # Add entries here as skills are promoted to the registry
-
-  # Example structure:
-  # - id: update_second_brain
-  #   name: Update Second Brain
-  #   description: Update .ai/ documentation after a work session
-  #   path: skills/update_second_brain/SKILL.md
-  #   tags: [documentation, session-management]
 
   - name: create-enterprise-skill
+    version: 1.0.0
     description: "Create a new enterprise skill package from templates, update registry.yaml, and validate schema/security."
-    triggers: ["create skill", "new enterprise skill", "skill template", "add skill to registry", "skill factory"]
-    inputs_required: ["skill_name", "description", "triggers", "inputs_required", "outputs"]
-    outputs: ["created_files", "registry_update", "validation_report", "next_steps"]
-    runner_compat: ["claude-code", "portable"]
+    triggers:
+      - "create skill"
+      - "new enterprise skill"
+      - "skill template"
+      - "add skill to registry"
+      - "skill factory"
+    inputs_required:
+      - skill_name
+      - description
+      - triggers
+      - inputs_required
+      - outputs
+    outputs:
+      - created_files
+      - registry_update
+      - validation_report
+      - next_steps
+    runner_compat:
+      - claude-code
+      - portable
 
   - name: investigate-bug
+    version: 1.0.0
     description: "Systematically triage, reproduce, isolate, and fix a bug with evidence, regression protection, and documented resolution."
-    triggers: ["bug","error","exception","traceback","failing test","500","regression","IntegrityError","DoesNotExist","PermissionDenied"]
-    inputs_required: ["symptoms","expected_behavior","environment"]
-    outputs: ["repro_assessment","repro_steps","isolation_hypothesis","root_cause_hypothesis","fix_plan","verification_plan","regression_test_plan","resolution_note"]
-    runner_compat: ["claude-code","portable"]
+    triggers:
+      - bug
+      - error
+      - exception
+      - traceback
+      - failing test
+      - "500"
+      - regression
+      - IntegrityError
+      - DoesNotExist
+      - PermissionDenied
+    inputs_required:
+      - symptoms
+      - expected_behavior
+      - environment
+    outputs:
+      - repro_assessment
+      - repro_steps
+      - isolation_hypothesis
+      - root_cause_hypothesis
+      - fix_plan
+      - verification_plan
+      - regression_test_plan
+      - resolution_note
+    runner_compat:
+      - claude-code
+      - portable
 
+  - name: update-second-brain
+    version: 1.0.0
+    description: "Append session summary to knowledge base, mark backlog items DONE, and create ADRs if architecture changed."
+    triggers:
+      - "update second brain"
+      - "end session"
+      - "log session"
+      - "update status"
+      - "session summary"
+    inputs_required:
+      - session_summary
+    outputs:
+      - backlog_updates
+      - status_entry_path
+      - adr_created
+      - commit_recommendation
+    runner_compat:
+      - claude-code
+      - portable
+
+  - name: generate-status-report
+    version: 1.0.0
+    description: "Generate a structured development status report for a defined period using git, backlog, and status logs."
+    triggers:
+      - "status report"
+      - "weekly report"
+      - "sprint report"
+      - "progress report"
+      - "retrospective"
+    inputs_required:
+      - period_start
+      - period_end
+    outputs:
+      - executive_summary
+      - completed_items
+      - in_progress_items
+      - blockers
+      - metrics_summary
+      - risk_register
+      - next_period_goals
+      - archive_links
+    runner_compat:
+      - claude-code
+      - portable
+
+  - name: security-review
+    version: 1.0.0
+    description: "Perform a structured application security review of a change set and produce risk assessment, required controls, and release gates."
+    triggers:
+      - "security review"
+      - "appsec review"
+      - "secure review"
+      - "threat review"
+      - "owasp"
+      - "auth check"
+      - "permission review"
+    inputs_required:
+      - change_summary
+      - affected_components
+    outputs:
+      - risk_assessment
+      - findings
+      - required_controls
+      - verification_plan
+      - release_gates
+      - security_notes
+    runner_compat:
+      - claude-code
+      - portable
+
+  - name: write-pr
+    version: 1.0.0
+    description: "Produce a high-quality PR description with scope, risk, testing evidence, rollout/rollback notes, and reviewer guidance."
+    triggers:
+      - "write pr"
+      - "pull request"
+      - "pr description"
+      - "release notes"
+      - "change summary"
+    inputs_required:
+      - title
+      - summary
+    outputs:
+      - pr_title
+      - pr_body
+      - review_checklist
+      - release_notes
+    runner_compat:
+      - claude-code
+      - portable
 metadata:
   registry_version: "1.0"
   last_updated: "2026-03-01"
-  schema:
-    - id: required
-    - name: required
-    - description: required
-    - path: required
-    - tags: optional
