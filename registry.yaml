@@ -155,6 +155,31 @@ skills:
     runner_compat:
       - claude-code
       - portable
+
+  - name: htmx-endpoint-review
+    version: 1.0.0
+    description: "Review HTMX endpoints for correct swap targets, OOB updates, CSRF coverage, partial rendering, and progressive enhancement to prevent UI drift."
+    triggers:
+      - "htmx review"
+      - "endpoint review"
+      - "htmx endpoint"
+      - "swap target"
+      - "oob update"
+      - "partial rendering"
+      - "htmx check"
+    inputs_required:
+      - endpoint_files
+      - expected_behavior
+    outputs:
+      - findings
+      - csrf_assessment
+      - oob_assessment
+      - template_assessment
+      - swap_target_assessment
+      - recommendations
+    runner_compat:
+      - claude-code
+      - portable
 metadata:
   registry_version: "1.0"
   last_updated: "2026-03-01"
