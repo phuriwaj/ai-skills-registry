@@ -1,0 +1,35 @@
+# Enterprise Skills Registry
+#
+# This file serves as the discovery index for portable, reusable procedures
+# designed to work across repositories and future AI runners.
+#
+# Structure:
+#   - Each skill has a unique identifier
+#   - skills/<skill-id>/SKILL.md contains the executable procedure
+#   - references/ and scripts/ are optional supporting materials
+#
+# Progressive loading: Read ONLY this file first.
+# Open individual SKILL.md files only when explicitly invoked or triggered.
+
+version: "1.0"
+
+skills:
+  # Placeholder structure for enterprise skills
+  # Add entries here as skills are promoted to the registry
+
+  # Example structure:
+  # - id: update_second_brain
+  #   name: Update Second Brain
+  #   description: Update .ai/ documentation after a work session
+  #   path: skills/update_second_brain/SKILL.md
+  #   tags: [documentation, session-management]
+
+metadata:
+  registry_version: "1.0"
+  last_updated: "2026-03-01"
+  schema:
+    - id: required
+    - name: required
+    - description: required
+    - path: required
+    - tags: optional
