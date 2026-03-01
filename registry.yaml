@@ -24,6 +24,20 @@ skills:
   #   path: skills/update_second_brain/SKILL.md
   #   tags: [documentation, session-management]
 
+  - name: create-enterprise-skill
+    description: "Create a new enterprise skill package from templates, update registry.yaml, and validate schema/security."
+    triggers: ["create skill", "new enterprise skill", "skill template", "add skill to registry", "skill factory"]
+    inputs_required: ["skill_name", "description", "triggers", "inputs_required", "outputs"]
+    outputs: ["created_files", "registry_update", "validation_report", "next_steps"]
+    runner_compat: ["claude-code", "portable"]
+
+  - name: investigate-bug
+    description: "Systematically triage, reproduce, isolate, and fix a bug with evidence, regression protection, and documented resolution."
+    triggers: ["bug","error","exception","traceback","failing test","500","regression","IntegrityError","DoesNotExist","PermissionDenied"]
+    inputs_required: ["symptoms","expected_behavior","environment"]
+    outputs: ["repro_assessment","repro_steps","isolation_hypothesis","root_cause_hypothesis","fix_plan","verification_plan","regression_test_plan","resolution_note"]
+    runner_compat: ["claude-code","portable"]
+
 metadata:
   registry_version: "1.0"
   last_updated: "2026-03-01"
