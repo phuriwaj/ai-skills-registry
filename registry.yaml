@@ -180,6 +180,36 @@ skills:
     runner_compat:
       - claude-code
       - portable
+
+  - name: spec-driven-development
+    version: 1.0.0
+    description: "Complete spec-driven development workflow: RFC -> Spec -> Implementation -> BDD Tests -> Fix loop. Use for any feature requiring specification-first development with automated testing."
+    triggers:
+      - "spec driven"
+      - "spec-driven"
+      - "sdd"
+      - "rfc workflow"
+      - "spec to bdd"
+      - "feature development"
+      - "tdd workflow"
+      - "rfc process"
+      - "create feature"
+      - "implement rfc"
+      - "feature from spec"
+    inputs_required:
+      - feature_name
+      - feature_description
+      - change_level
+    outputs:
+      - rfc_document
+      - bdd_tests
+      - implementation_files
+      - test_results
+      - commit_summary
+    runner_compat:
+      - claude-code
+      - portable
+
 metadata:
   registry_version: "1.0"
-  last_updated: "2026-03-01"
+  last_updated: "2026-03-08"
