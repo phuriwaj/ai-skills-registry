@@ -210,6 +210,87 @@ skills:
       - claude-code
       - portable
 
+# ─────────────────────────────────────────────────────────────
+# ADD THESE 4 ENTRIES to your existing registry.yaml
+# Place them inside the `skills:` list alongside your existing skills
+# ─────────────────────────────────────────────────────────────
+
+  - name: planner-agent
+    version: 1.0.0
+    description: "Break an approved RFC into ordered markdown task files for Coder Agent execution. Outputs .ai/tasks/{feature}/ directory with numbered task files and README."
+    triggers:
+      - "plan feature"
+      - "create tasks"
+      - "break down rfc"
+      - "task planning"
+      - "planner agent"
+    inputs_required:
+      - feature_name
+      - rfc_path
+    outputs:
+      - task_directory
+      - task_files
+      - readme_with_dependency_graph
+    runner_compat:
+      - claude-code
+
+  - name: coder-agent
+    version: 1.0.0
+    description: "Implement tasks from .ai/tasks/{feature}/ one at a time following constitution rules. Reads each task file, implements only what is specified, runs quality gates, updates task status."
+    triggers:
+      - "implement"
+      - "start coding"
+      - "execute task"
+      - "coder agent"
+      - "resume task"
+    inputs_required:
+      - feature_name
+    outputs:
+      - implemented_files
+      - updated_task_statuses
+      - quality_gate_results
+    runner_compat:
+      - claude-code
+
+  - name: tester-agent
+    version: 1.0.0
+    description: "Generate BDD feature files and pytest unit tests, run full quality gate suite, report results. Routes pass to Reviewer Agent or failures back to Coder Agent."
+    triggers:
+      - "run tests"
+      - "generate tests"
+      - "tester agent"
+      - "test coverage"
+      - "quality gates"
+    inputs_required:
+      - feature_name
+      - app_name
+    outputs:
+      - bdd_feature_file
+      - unit_test_file
+      - quality_gate_report
+      - pass_or_fail_routing
+    runner_compat:
+      - claude-code
+
+  - name: reviewer-agent
+    version: 1.0.0
+    description: "Enforce Jellyfish Architecture Constitution against all changed files. Produces APPROVED or REJECTED verdict with CRITICAL/WARNING issues citing specific constitution sections and actionable fixes."
+    triggers:
+      - "review"
+      - "code review"
+      - "reviewer agent"
+      - "constitution check"
+      - "approve feature"
+    inputs_required:
+      - feature_name
+    outputs:
+      - verdict
+      - critical_issues
+      - warning_issues
+      - next_steps
+    runner_compat:
+      - claude-code
+
 metadata:
   registry_version: "1.0"
   last_updated: "2026-03-08"
