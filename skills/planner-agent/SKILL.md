@@ -71,6 +71,7 @@ For each component, write a task file following this exact template:
 > **Feature:** {Feature Name}
 > **RFC:** .ai/rfc/{NNN}-{feature}.md
 > **Spec:** .ai/specs/{spec-name}.md
+> **Specialist:** {Specialist Label}  (e.g. django-specialist-v2, frontend-implementation-v2) 
 > **Status:** 🔴 TODO
 
 ## Objective
@@ -129,10 +130,10 @@ Create `.ai/tasks/{feature-name}/README.md`:
 
 ## Task List
 
-| # | Task | Status | Files | Tests |
-|---|------|--------|-------|-------|
-| 01 | [{title}](./01_{name}.md) | 🔴 TODO | {N} | {N} |
-| 02 | [{title}](./02_{name}.md) | 🔴 TODO | {N} | {N} |
+| # | Task | Status | Files | Tests | Specialist |
+|---|------|--------|-------|-------|------------|
+| 01 | [{title}](./01_{name}.md) | 🔴 TODO | {N} | {N} | {Specialist} |
+| 02 | [{title}](./02_{name}.md) | 🔴 TODO | {N} | {N} | {Specialist} |
 
 **Total:** 0/{N} tasks · 0 files · 0 tests
 
